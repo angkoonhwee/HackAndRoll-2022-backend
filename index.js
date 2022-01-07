@@ -5,12 +5,19 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const route = require("express").Router();
 const authRoute = require("./routes/auth");
+const requestRoute = require("./routes/request");
+const chatRoute = require("./routes/chat");
+const messageRoute = require("./routes/message");
+const todoRoute = require("./routes/todo");
 
 app.use(express.json());
 
 app.use("/auth", authRoute);
+app.use("/request", requestRoute);
+app.use("/chat", chatRoute);
+app.use("/message", messageRoute);
+app.use("/todos", todoRoute);
 
 app.get("/", (req, res) => {
     res.send("Test Punkt Server");

@@ -36,8 +36,8 @@ const userSchema = new mongoose.Schema(
             linkedIn: String,
         },
         currentBuddy: {
-            type: String,
-            default: ""
+            type: mongoose.Types.ObjectId,
+            default: null
         },
         myRequest: {
             type: mongoose.Types.ObjectId,
@@ -47,6 +47,16 @@ const userSchema = new mongoose.Schema(
             type: Array,
             default: []
         },
+        todos: [
+            {
+                description: String,
+                status: {
+                    type: String,
+                    required: true,
+                    default: "Incomplete"
+                }
+            }
+        ]
     },
     { timestamps: true }
 );
